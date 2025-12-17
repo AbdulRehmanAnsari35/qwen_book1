@@ -15,15 +15,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://qwen-book.github.io',
+  url: 'https://qwen-book1.vercel.app', // Updated for Vercel deployment
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/qwen_book/',
+  baseUrl: '/', // Changed from '/qwen_book/' for Vercel deployment
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'qwen-book', // Usually your GitHub org/user name.
-  projectName: 'qwen_book', // Usually your repo name.
+  organizationName: 'AbdulRehmanAnsari35', // Updated to your GitHub username
+  projectName: 'qwen_book1', // Updated to your repo name
 
   onBrokenLinks: 'throw',
 
