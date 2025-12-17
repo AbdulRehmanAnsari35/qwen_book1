@@ -4,107 +4,306 @@
  * work well for content-centric websites.
  */
 
-/* Robotics-themed color scheme */
+/* Transformer-themed color scheme */
 :root {
-  --ifm-color-primary: #1a75bc;        /* Robotics blue */
-  --ifm-color-primary-dark: #16629c;   /* Darker robotics blue */
-  --ifm-color-primary-darker: #14598f; /* Even darker robotics blue */
-  --ifm-color-primary-darkest: #0f4570; /* Darkest robotics blue */
-  --ifm-color-primary-light: #3c8ccd;   /* Lighter robotics blue */
-  --ifm-color-primary-lighter: #6ba8db; /* Even lighter robotics blue */
-  --ifm-color-primary-lightest: #a5cbea; /* Lightest robotics blue */
+  --ifm-color-primary: #0055aa;        /* Deep transformer blue */
+  --ifm-color-primary-dark: #004488;   /* Darker transformer blue */
+  --ifm-color-primary-darker: #003a75; /* Even darker transformer blue */
+  --ifm-color-primary-darkest: #002a55; /* Darkest transformer blue */
+  --ifm-color-primary-light: #3377cc;   /* Lighter transformer blue */
+  --ifm-color-primary-lighter: #66aaff; /* Even lighter transformer blue */
+  --ifm-color-primary-lightest: #ddecff; /* Lightest transformer blue */
 
-  --ifm-color-secondary: #ff6b35;       /* Accent color - robotics orange */
-  --ifm-color-tertiary: #2e8555;        /* Secondary accent - tech green */
+  --ifm-color-secondary: #ff4444;       /* Transformer red accent */
+  --ifm-color-tertiary: #ffaa00;        /* Transformer yellow accent */
+  --ifm-color-quaternary: #00cc66;      /* Transformer green accent */
 
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(26, 117, 188, 0.15); /* Match primary color */
+  --docusaurus-highlighted-code-line-bg: rgba(0, 85, 170, 0.15); /* Match primary color */
+
+  /* Custom gradient backgrounds */
+  --transformer-gradient-start: #003366;
+  --transformer-gradient-end: #2266aa;
+  --transformer-accent-gradient: linear-gradient(135deg, #0055aa 0%, #ff4444 100%);
+  --transformer-card-bg: rgba(0, 85, 170, 0.08);
 }
 
-/* Dark mode robotics theme */
+/* Dark mode transformer theme */
 [data-theme='dark'] {
-  --ifm-color-primary: #4da6ff;         /* Light robotics blue */
-  --ifm-color-primary-dark: #1a75bc;    /* Standard robotics blue */
-  --ifm-color-primary-darker: #16629c;  /* Darker robotics blue */
-  --ifm-color-primary-darkest: #114e7a; /* Darkest robotics blue */
-  --ifm-color-primary-light: #7fbfff;   /* Lighter robotics blue */
-  --ifm-color-primary-lighter: #b2d9ff; /* Very light robotics blue */
-  --ifm-color-primary-lightest: #e6f2ff; /* Lightest robotics blue */
+  --ifm-color-primary: #4da6ff;         /* Light transformer blue */
+  --ifm-color-primary-dark: #0055aa;    /* Standard transformer blue */
+  --ifm-color-primary-darker: #004488;  /* Darker transformer blue */
+  --ifm-color-primary-darkest: #003366; /* Darkest transformer blue */
+  --ifm-color-primary-light: #7fbfff;   /* Lighter transformer blue */
+  --ifm-color-primary-lighter: #b2d9ff; /* Very light transformer blue */
+  --ifm-color-primary-lightest: #e6f2ff; /* Lightest transformer blue */
 
-  --ifm-color-secondary: #ff8c52;       /* Lighter accent color */
-  --ifm-color-tertiary: #4caf7d;        /* Lighter secondary accent */
+  --ifm-color-secondary: #ff6666;       /* Lighter red accent */
+  --ifm-color-tertiary: #ffbb33;        /* Lighter yellow accent */
+  --ifm-color-quaternary: #00dd88;      /* Lighter green accent */
 
   --docusaurus-highlighted-code-line-bg: rgba(77, 166, 255, 0.2); /* Match primary color */
 }
 
-/* Additional robotics-themed styles */
-.hero--primary {
-  background: linear-gradient(135deg, #1a75bc 0%, #0f4570 100%);
+/* Transformer-themed hero section */
+.hero {
+  background: linear-gradient(135deg, var(--transformer-gradient-start) 0%, var(--transformer-gradient-end) 100%);
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 2rem;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: rotate(30deg);
+  z-index: 0;
+}
+
+.hero__title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero__subtitle {
+  position: relative;
+  z-index: 1;
+  font-size: 1.2rem;
+}
+
+/* Button enhancements */
+.button {
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--transformer-accent-gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.button:hover::before {
+  opacity: 0.15;
 }
 
 .button--primary {
-  background: #1a75bc;
-  border-color: #1a75bc;
+  background: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
 }
 
-.button--primary:hover {
-  background: #16629c;
-  border-color: #16629c;
+.button--secondary {
+  background: var(--ifm-color-secondary);
+  border-color: var(--ifm-color-secondary);
 }
 
-/* Custom styles for robotics content */
-.robotics-card {
-  border: 1px solid var(--ifm-color-primary-light);
-  border-radius: 8px;
-  padding: 1rem;
+/* Grid layout for content cards */
+.transformer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.transformer-card {
+  border: 1px solid rgba(0, 85, 170, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
   margin: 1rem 0;
-  background-color: rgba(26, 117, 188, 0.05);
-}
-
-.robotics-card h3 {
-  color: var(--ifm-color-primary);
-  border-bottom: 1px solid var(--ifm-color-primary-light);
-  padding-bottom: 0.5rem;
-}
-
-/* Code block enhancements for robotics/ROS content */
-div[class*="codeBlockContainer"] {
-  border-radius: 8px;
+  background-color: var(--transformer-card-bg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
   overflow: hidden;
 }
 
-/* Navigation sidebar enhancements */
-.menu__list-item-collapsible:hover {
-  background-color: rgba(26, 117, 188, 0.1);
-  border-radius: 6px;
-}
-
-/* Table styling for robotics specifications */
-.table-wrapper {
-  overflow-x: auto;
-}
-
-table {
+.transformer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  border-collapse: collapse;
+  height: 4px;
+  background: var(--transformer-accent-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
 }
 
-table th, table td {
-  padding: 0.75rem;
+.transformer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 85, 170, 0.2);
+}
+
+.transformer-card:hover::before {
+  transform: scaleX(1);
+}
+
+.transformer-card h3 {
+  color: var(--ifm-color-primary);
+  border-bottom: 2px solid var(--ifm-color-primary-light);
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+}
+
+/* Enhanced navigation sidebar */
+.navbar {
+  background: rgba(0, 20, 40, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+  background: var(--ifm-background-surface-color);
+  border-right: 1px solid var(--ifm-toc-border-color);
+}
+
+.menu__list-item-collapsible:hover {
+  background-color: rgba(0, 85, 170, 0.1);
+  border-radius: 8px;
+}
+
+/* Code block enhancements */
+div[class*="codeBlockContainer"] {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.code-block {
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.9rem;
+}
+
+/* Custom components */
+.interactive-section {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 1px solid rgba(0, 85, 170, 0.15);
+}
+
+.tech-spec-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.tech-spec-table th,
+.tech-spec-table td {
+  padding: 1rem;
   text-align: left;
-  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  border-bottom: 1px solid var(--ifm-toc-border-color);
 }
 
-table th {
+.tech-spec-table th {
   background-color: var(--ifm-color-primary-lightest);
-  color: var(--ifm-font-color-base);
+  color: var(--ifm-color-primary);
+  font-weight: 600;
 }
 
-/* Blockquote styling for important notes */
-blockquote {
-  border-left: 4px solid var(--ifm-color-primary);
-  background-color: rgba(26, 117, 188, 0.05);
-  padding: 1rem 1.5rem;
+.tech-spec-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Blockquote for important notes */
+.alert {
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
   margin: 1.5rem 0;
-  border-radius: 0 8px 8px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.alert::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--transformer-accent-gradient);
+}
+
+.alert--info {
+  background-color: rgba(51, 119, 204, 0.1);
+  border-left: 5px solid var(--ifm-color-primary-light);
+}
+
+.alert--danger {
+  background-color: rgba(255, 68, 68, 0.1);
+  border-left: 5px solid var(--ifm-color-secondary);
+}
+
+/* Footer enhancements */
+.footer {
+  background: linear-gradient(135deg, var(--transformer-gradient-start) 0%, var(--transformer-gradient-end) 100%);
+  padding: 3rem 0 2rem;
+  color: white;
+  margin-top: 4rem;
+}
+
+.footer__title {
+  color: white;
+  font-weight: 600;
+}
+
+.footer__link-item {
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.3s ease;
+}
+
+.footer__link-item:hover {
+  color: white;
+}
+
+/* Animation for page transitions */
+.fade-in-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-in-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem;
+  }
+
+  .hero__title {
+    font-size: 2rem;
+  }
+
+  .transformer-grid {
+    grid-template-columns: 1fr;
+  }
 }
