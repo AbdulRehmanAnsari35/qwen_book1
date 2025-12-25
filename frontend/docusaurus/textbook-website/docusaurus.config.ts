@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Physical AI & Humanoid Robotics Textbook',
   tagline: 'Comprehensive Guide to Building Intelligent Humanoid Robots',
-  favicon: 'img/robot-icon.png', // Will need to add this later
+  favicon: 'img/logo.png', // Using custom logo
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -70,7 +70,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/logo.png', // Using custom logo for social card
     colorMode: {
       respectPrefersColorScheme: true,
     },
@@ -78,7 +78,7 @@ const config: Config = {
       title: 'Physical AI & Humanoid Robotics',
       logo: {
         alt: 'Physical AI & Humanoid Robotics Textbook Logo',
-        src: 'img/robot-icon.png', // Will need to add this later
+        src: 'img/logo.png', // Using custom logo
       },
       items: [
         {
